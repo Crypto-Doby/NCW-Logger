@@ -12,12 +12,12 @@ final class NCWLoggerTests: XCTestCase {
     }
     
     func testExample() throws {
-        logger1.debug("aaaaaaa")
+        logger1.info("aaaaaaa")
         logger1.debug("bbbbbbb")
-        logger1.debug("ccccccc")
-        logger2.debug("aaaaaaa")
+        logger1.error("ccccccc")
+        logger2.warning("aaaaaaa")
         logger2.debug("bbbbbbb")
-        logger2.debug("ccccccc")
+        logger2.verbose("ccccccc")
 //        wait(for: [], timeout: 3)
     }
 }

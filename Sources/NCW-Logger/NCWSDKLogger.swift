@@ -8,11 +8,16 @@
 import Foundation
 import SwiftyBeaver
 
-final public class NCWSDKLogger: NCWLogger {
+public struct NCWSDKLogger: NCWLogger {
+    public let destinations = [ConsoleDestination(), NCWLoggerFileDestination()]
+    
+    public var filters: [FilterType] = []
+    
+    public var logTag = "Defi SDK"
+    
+    public var destinationValidator: ((BaseDestination) -> Bool)?  = nil
+    
     public init() {
-        super.init(destinations: [ConsoleDestination(), FileDestination()],
-                   logTag: "Defi SDK",
-                   destinationValidator: {_ in true})
         setupDestination()
     }
 }

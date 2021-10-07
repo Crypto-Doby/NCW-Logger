@@ -9,10 +9,15 @@ import Foundation
 import SwiftyBeaver
 
 final public class NCWWalletLogger: NCWLogger {
+    public let destinations = [ConsoleDestination(), NCWLoggerFileDestination()]
+    
+    public var filters: [FilterType] = []
+    
+    public var logTag = "wallet"
+    
+    public var destinationValidator: ((BaseDestination) -> Bool)?  = nil
+    
     public init() {
-        super.init(destinations: [ConsoleDestination(), FileDestination()],
-                   logTag: "wallet",
-                   destinationValidator: {_ in true})
         setupDestination()
     }
 }
